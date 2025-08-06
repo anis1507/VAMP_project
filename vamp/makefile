@@ -1,4 +1,4 @@
-CC = ../../../riscv-gnu-toolchain/nds64le-linux-glibc-v5d/nds64le-linux-glibc-v5d/bin/riscv64-linux-gcc
+CC = ../riscv-gnu-toolchain/nds64le-linux-glibc-v5d/nds64le-linux-glibc-v5d/bin/riscv64-linux-gcc
 CFLAGS = -Wall -std=c11 -Iinclude -mext-dsp -static
 LDFLAGS = -Tldscript -lm
 TARGET = vamp
