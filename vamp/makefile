@@ -1,6 +1,6 @@
 CC = ../../../riscv-gnu-toolchain/nds64le-linux-glibc-v5d/nds64le-linux-glibc-v5d/bin/riscv64-linux-gcc
 CFLAGS = -Wall -std=c11 -Iinclude -mext-dsp -static
-LDFLAGS = -T../../../ldscript -lm
+LDFLAGS = -Tldscript -lm
 TARGET = vamp
 SRC_DIR = src
 OBJ_DIR = obj
