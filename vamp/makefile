@@ -12,44 +12,44 @@ CFLAGS = -Wall -std=c11 -Iinclude -mext-dsp -static
 # Linker flags
 LDFLAGS = -Tldscript -lm
 
-# Target executable
-TARGET = vamp
-
 # Source and object directories
 SRC_DIR = src
 OBJ_DIR = obj
 
-# Source files, excluding gpio_sender.c (not compatible with this architecture)
-SRC = $(filter-out $(SRC_DIR)/gpio_sender.c, $(wildcard $(SRC_DIR)/*.c))
+# Sources for vamp executable (exclude main.c and gpio_sender.c)
+VAMP_SRC = $(filter-out $(SRC_DIR)/main.c $(SRC_DIR)/gpio_sender.c, $(wildcard $(SRC_DIR)/*.c))
+VAMP_OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(VAMP_SRC))
 
-# Object files
-OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
-
-# Dependency files
-DEP = $(OBJ:.o=.d)
+# Source for main executable (only main.c)
+MAIN_SRC = $(SRC_DIR)/main.c
+MAIN_OBJ = $(OBJ_DIR)/main.o
 
 # Required input files for runtime
 INPUT_FILES = input/arm_description.txt input/start_end.txt input/obstacles.txt
 
 # Default rule: build everything
-all: $(TARGET) inputs
+all: vamp main inputs
 
-# Linking the final executable
-$(TARGET): $(OBJ)
+# Link vamp executable
+vamp: $(VAMP_OBJ)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-# Compiling C source files to object files
+# Link main executable
+main: $(MAIN_OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+# Compile source files into object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -c $< -o $@
 
-# Check that input files are present
+# Check input files presence
 inputs: $(INPUT_FILES)
 	@echo "All required input files are present."
 
-# Include dependency files for incremental builds
--include $(DEP)
+# Include dependency files
+-include $(OBJ_DIR)/*.d
 
 # Clean build artifacts
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET)
+	rm -rf $(OBJ_DIR) vamp main
