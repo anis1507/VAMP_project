@@ -1,0 +1,35 @@
+# Ignore object and dependency files in obj/
+vamp/obj/*
+!vamp/obj/.gitkeep
+
+# Ignore generated files in output/
+vamp/output/*
+!vamp/output/.gitkeep
+
+# Ignore compiled binary files
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+
+# Ignore possible build directories
+build/
+out/
+
+# Ignore temporary editor or system files
+*~
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temporary files
+*.log
+
+# Ignore compiled executables for other platforms (example)
+*.exe
+
+# Ignore hidden IDE folders and files (add if needed)
+.vscode/
+.idea/
