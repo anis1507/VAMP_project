@@ -9,8 +9,18 @@ This project was written specifically to run on a **Tinker V** board (RISC-V arc
 - A Linuxhost machine for cross-compling
 - [`nds64le-linux-glibc-v5d`](https://github.com/andestech/nds-gnu-toolchain) for compling VAMP code
 
-## Setup Instructions
+## Excepted Project Structure
 
-### 1. Clone the Repository
+After cloning ans setup, the project directory should like this :
 
-Clone this 
+VAMP_project/
+├── input/
+├── output/
+├── src/
+│ ├── main.c
+│ ├── vamp.c
+│ └── Makefile
+├── gpio_sender/ ← contains the compiled gpio_sender executable for RISC-V
+├── arduino/
+│ └── receive.ino
+├── nds-gnu-toolchain/ ← required for cross-compiling for the RISC-V
