@@ -14,7 +14,6 @@ This project was written specifically to run on a **Tinker V** board (RISC-V arc
 After cloning ans setup, the project directory should like this :
 
 VAMP_project/
-
 ├── input/
 
 ├── output/
