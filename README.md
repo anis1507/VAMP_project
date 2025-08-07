@@ -7,7 +7,7 @@ This project was written specifically to run on a **Tinker V** board (RISC-V arc
 - A Tinker V board (or any RISC-V architecture)
 - An Arduino (for receive GPIO signals)
 - A Linuxhost machine for cross-compling
-- [`riscv-gnu-toolchain`](https://github.com/riscv-collab/riscv-gnu-toolchain) for compling VAMP code
+- [`nds64le-linux-glibc-v5d`](https://github.com/andestech/nds-gnu-toolchain) for compling VAMP code
 
 ## Setup Instructions
 
