@@ -1,5 +1,5 @@
 # Cross-compiler for RISC-V architecture
-CC = nds64le-linux-glibc-v5d/nds64le-linux-glibc-v5d/bin/riscv64-linux-gcc
+CC = ../nds64le-linux-glibc-v5d/nds64le-linux-glibc-v5d/bin/riscv64-linux-gcc
 
 # Compiler flags:
 # -Wall: show all warnings
