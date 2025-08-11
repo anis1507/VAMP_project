@@ -31,7 +31,7 @@ make
 ```
 This will generate the required executables using the specified RISC-V cross-compiler.
 
-⚠️ **Important** : Ensure that the Makefile is configured to use the correct binaries from the nds64le-linux-glibc-v5d toolchain (e.g., nds64le-linux-glibc-v5d-gcc, etc.). The toolchain folder must be placed at the same directory level as this project.
+⚠️ **Important** : The toolchain folder must be placed at the same directory level as this project.
 
 ### 3. Upload the Arduino code
 
